@@ -1,0 +1,36 @@
+# Web Framework
+Flask==3.0.3
+Flask-CORS==4.0.0
+
+# Database
+SQLAlchemy==2.0.31
+psycopg2-binary==2.9.9
+alembic==1.13.2
+
+# Data Processing
+pandas==2.2.2
+numpy==1.26.4
+
+# Machine Learning - Classical Models
+scikit-learn==1.5.1
+xgboost==2.1.0
+
+# Machine Learning - Deep Learning
+tensorflow==2.17.0
+
+# API & Data Fetching
+requests==2.32.3
+python-dotenv==1.0.1
+
+# Scheduling
+APScheduler==3.10.4
+
+# Data Validation
+pydantic==2.8.2
+
+# Utilities
+python-dateutil==2.9.0
+pytz==2024.1
+
+# Monitoring & Logging
+gunicorn==22.0.0

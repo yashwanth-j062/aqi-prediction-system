@@ -1,0 +1,27 @@
+{
+  "name": "aqi-prediction-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Real-time AQI prediction dashboard",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "axios": "^1.7.2",
+    "chart.js": "^4.4.3",
+    "react-chartjs-2": "^5.2.0",
+    "date-fns": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.3.3",
+    "eslint": "^8.57.0"
+  }
+}
