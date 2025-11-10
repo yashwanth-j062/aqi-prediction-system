@@ -6,6 +6,10 @@ import pickle
 from pathlib import Path
 import logging
 
+# Setup logging BEFORE trying imports
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # TensorFlow/Keras imports
 try:
     import tensorflow as tf
@@ -16,12 +20,10 @@ try:
     from sklearn.preprocessing import StandardScaler
     from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
     TENSORFLOW_AVAILABLE = True
+    logger.info("TensorFlow available for LSTM model")
 except ImportError:
     TENSORFLOW_AVAILABLE = False
     logger.warning("TensorFlow not available. LSTM model will not work.")
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 
 class LSTMModel:
