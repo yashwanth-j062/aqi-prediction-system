@@ -2,6 +2,7 @@
   "name": "aqi-prediction-frontend",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Real-time AQI prediction dashboard",
   "scripts": {
     "dev": "vite",

@@ -1,0 +1,448 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem 0;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand h1 {
+  font-size: 1.8rem;
+  color: #667eea;
+  margin-bottom: 0.25rem;
+}
+
+.navbar-brand p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0fdf4;
+  color: #16a34a;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.live-indicator .pulse {
+  width: 8px;
+  height: 8px;
+  background: #16a34a;
+  border-radius: 50%;
+}
+
+/* App Container */
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+/* City Selector */
+.city-selector {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.selector-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.selector-dropdown {
+  position: relative;
+}
+
+.selector-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.selector-button:hover {
+  border-color: #667eea;
+}
+
+.selected-city {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.selected-city strong {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.city-state {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.dropdown-arrow {
+  color: #667eea;
+  font-size: 0.8rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+  max-height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-box {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-box input:focus {
+  border-color: #667eea;
+}
+
+.cities-list {
+  overflow-y: auto;
+  max-height: 320px;
+}
+
+.city-item {
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.city-item:hover {
+  background: #f8f9fa;
+}
+
+.city-item.active {
+  background: #e7f3ff;
+  border-left: 3px solid #667eea;
+}
+
+.city-state-small {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.no-results {
+  padding: 2rem;
+  text-align: center;
+  color: #999;
+}
+
+.selector-info {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Dashboard */
+.dashboard {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.last-update {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.dashboard-loading,
+.dashboard-error {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.dashboard-error h3 {
+  color: #dc3545;
+  margin-bottom: 1rem;
+}
+
+/* Health Alert */
+.health-alert {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  margin-bottom: 2rem;
+}
+
+.alert-icon {
+  font-size: 2rem;
+}
+
+.alert-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.alert-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metrics-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #e9ecef;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metrics-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.metrics-card.primary-card {
+  grid-column: span 2;
+}
+
+.card-header h4 {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.card-value {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.card-value .value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.card-value .unit {
+  font-size: 1rem;
+  color: #666;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Pollutants Section */
+.pollutants-section {
+  margin-bottom: 2rem;
+}
+
+.pollutants-section h3 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.pollutants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.pollutant-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.pollutant-name {
+  font-weight: 600;
+  color: #555;
+}
+
+.pollutant-value {
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* Charts Section */
+.charts-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.chart-container {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.chart-container h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.chart-wrapper {
+  height: 300px;
+  position: relative;
+}
+
+.forecast-legend {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+  text-align: center;
+}
+
+.forecast-legend p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Dashboard Actions */
+.dashboard-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.refresh-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .app-container {
+    padding: 1rem;
+  }
+
+  .metrics-card.primary-card {
+    grid-column: span 1;
+  }
+
+  .charts-section {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-wrapper {
+    height: 250px;
+  }
+}
