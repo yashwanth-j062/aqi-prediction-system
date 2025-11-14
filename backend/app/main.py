@@ -12,6 +12,53 @@ from app.services.scheduler import SchedulerService
 import logging
 import atexit
 
+def setup_initial_data():
+    """Load cities into database if not already present"""
+    try:
+        from app.database import ScopedSession
+        from app.models.db_models import City
+        import json
+        from pathlib import Path
+        
+        db = ScopedSession()
+        
+        # Check if cities already loaded
+        if db.query(City).count() > 0:
+            logger.info(f"Database already has {db.query(City).count()} cities")
+            db.close()
+            return
+        
+        # Load cities from JSON
+        cities_file = Path(__file__).parent.parent / 'data' / 'cities.json'
+        
+        if not cities_file.exists():
+            logger.warning(f"Cities file not found: {cities_file}")
+            db.close()
+            return
+            
+        with open(cities_file, 'r') as f:
+            cities_data = json.load(f)
+        
+        # Add cities
+        logger.info("Loading cities into database...")
+        for city_data in cities_data['cities']:
+            city = City(
+                name=city_data['name'],
+                state=city_data['state'],
+                latitude=city_data['lat'],
+                longitude=city_data['lon']
+            )
+            db.add(city)
+        
+        db.commit()
+        logger.info(f"✓ Successfully loaded {db.query(City).count()} cities!")
+        db.close()
+        
+    except Exception as e:
+        logger.error(f"Error loading cities: {e}")
+        import traceback
+        traceback.print_exc()
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
