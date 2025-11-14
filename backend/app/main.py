@@ -86,6 +86,7 @@ def create_app():
             Config.validate_config()
             init_db()
             logger.info("✓ Database initialized")
+            setup_initial_data()
         except Exception as e:
             logger.error(f"Failed to initialize database: {e}")
             raise
